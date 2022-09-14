@@ -39,6 +39,8 @@ class AuthController extends Controller
         }
          /** @var \App\Models\User */
         $user = Auth::user();
-        $Accesstoken = $user->createToken('Access Token')->accessToken;
+        $accessToken = $user->createToken('Access Token')->accessToken;
+
+        return response(['user' => auth()->user(), 'access_token'=> $accessToken]);
     }
 }
